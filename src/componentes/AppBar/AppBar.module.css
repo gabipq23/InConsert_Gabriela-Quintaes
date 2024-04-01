@@ -1,0 +1,50 @@
+.container{
+    background-color:#d295c8;
+    padding:16px;
+    display:flex;
+    justify-content:space-between;
+    font-family:Helvetica;
+}
+
+.logo{
+    background-color:#CD168A;
+    font-size:1.25em;
+    font-weight:bold;
+    color:#7BDA97;
+    padding:8px 16px;
+    border-radius:15px;
+}
+
+.logo a{
+    cursor:pointer;
+
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    color:#C6007D;
+    font-weight:bold;
+ 
+}
+
+.menu a{
+    cursor:pointer;
+}
+
+.menu a:hover{
+    color:#25452E;
+
+}
+
+@media(width>600px){
+    .container{
+    padding:16px 32px;
+
+    }
+    .menu{
+        font-size:1.1em;
+       
+    }
+}
