@@ -1,13 +1,14 @@
 .container{
-    background-color:#e9fff3;
+    background-color:#F0D6E6;
     padding:16px;
     display:flex;
     flex-direction:column;
     align-items:center;
     font-family:Helvetica;
     color:#404a43;
-    height:100vh;
+    border-radius: 8px;
 }
+
 
 .container input{
     border: solid 1px #C6007D;
