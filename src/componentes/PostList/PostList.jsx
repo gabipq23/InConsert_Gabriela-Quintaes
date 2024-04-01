@@ -6,9 +6,9 @@ export function PostList({ handlePlus }){
         <div className={styles["container"]}>
             
             <div  className={styles["containerPosts"]}> 
-            <Card titulo={'Post #1'} descricao={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
-            <Card titulo={'Post #2'} descricao={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
-            <Card titulo={'Post #3'} descricao={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
+            <Card titulo={'Post #1'} artista={'Justin Bieber'} local={'Rock in Rio'} descricao={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
+            <Card titulo={'Post #2'} artista={'Taylor Swift'} local={'Engenhão - RJ'} descricao={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
+            <Card titulo={'Post #3'} artista={'The Weeknd'}  local={'Engenhão - RJ'} descricao={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
 
             <div className={styles["buttonContainer"]}>
                 <button onClick={handlePlus} className={styles["buttonPlus"]}>+</button>
