@@ -8,3 +8,19 @@
 .containerPosts:hover{
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
+
+.icons{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    color: #25452E;
+    padding: 8px;
+    
+}
+.iconItem{
+    cursor: pointer;
+}
+
+.iconItem:hover{
+    color: #126B2B;
+}
