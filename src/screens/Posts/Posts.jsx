@@ -1,7 +1,7 @@
 import styles from './Posts.module.css'
 import { Component } from 'react'
-import { PostList } from "../PostList/PostList"
-import { NewPost } from "../NewPost/NewPost"
+import { PostList } from "../../componentes/PostList/PostList"
+import { NewPost } from "../../componentes/NewPost/NewPost"
 
 
 export class Posts extends Component{
@@ -29,7 +29,7 @@ export class Posts extends Component{
         return (
           <div className={styles["container"]}>
 
-            <div>
+            <div className={styles["title"]}>
                 <h2>Posts</h2>
             </div>
 

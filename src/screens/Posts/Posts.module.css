@@ -7,3 +7,13 @@
     font-family:Helvetica;
     color:#404a43;
 }
+
+.title{
+    text-align: center;
+    padding: 8px;
+}
+
+.title h2{
+    font-size: 1.5em;
+    font-weight: bold;
+}

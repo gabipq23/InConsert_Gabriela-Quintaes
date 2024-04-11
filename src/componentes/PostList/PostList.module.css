@@ -1,18 +1,14 @@
-/* .container{
-    background-color:#e9fff3;
-    padding:16px;
+.container{
     display:flex;
     flex-direction:column;
     align-items:center;
-    font-family:Helvetica;
-    color:#404a43;
-    height:100vh;
-} */
+}
 
 .containerPosts{
     display: flex;
     flex-direction: column;
 }
+
 .buttonPlus{
     border:none;
     border-radius:50%;

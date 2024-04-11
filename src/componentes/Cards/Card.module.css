@@ -9,6 +9,17 @@
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+.containerPosts h3{
+    font-size: 1.125em;
+    padding: 8px;
+}
+
+.containerPosts p{
+    font-size: 1em;
+    padding: 4px;
+}
+
+
 .icons{
     display: flex;
     gap: 16px;
