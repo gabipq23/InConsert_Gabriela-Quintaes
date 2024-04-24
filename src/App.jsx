@@ -38,8 +38,8 @@ function App() {
 
                 <nav className="menu">
                     <a onClick={() => setScreen(0)}>Home</a>
-                    <a onClick={() => setScreen(1)}>Perfil</a>
                     <a onClick={() => setScreen(2)}>Posts</a>
+                    <a onClick={() => setScreen(1)}>Perfil</a>
                 </nav>
                 
         </div>
