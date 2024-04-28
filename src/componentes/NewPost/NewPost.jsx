@@ -6,9 +6,9 @@ export function NewPost({ handleNewPost }) {
 
           <h3>Escreva aqui o seu novo post:</h3>
         
-          <input placeholder='nome do artista aqui...' type="text"></input>
-          <input placeholder='local do evento aqui...' type="text"></input>
-          <input placeholder='descrição aqui...' type="text"></input>
+          <textarea placeholder='nome do artista aqui...' type="text"></textarea>
+          <textarea placeholder='local do evento aqui...' type="text"></textarea>
+          <textarea placeholder='descrição aqui...' type="text"></textarea>
 
 
         <div className={styles["buttonContainer"]}>

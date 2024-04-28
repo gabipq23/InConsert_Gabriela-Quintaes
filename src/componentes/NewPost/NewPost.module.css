@@ -11,14 +11,23 @@
 }
 
 
-.container input{
+.container textarea{
     border: solid 1px #C6007D;
     padding: 8px;
-    width: 100%;
+    width: 300px;
     height: 200px;
     margin: 10px;
 }
 
+@media(width>600px){
+    .container textarea{
+        border: solid 1px #C6007D;
+        padding: 8px;
+        width: 400px;
+        height: 160px;
+        margin: 10px;
+    }
+}
 .buttonNew{
     border:none;
     border-radius:15px;

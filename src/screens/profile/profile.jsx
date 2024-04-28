@@ -1,14 +1,11 @@
 import { FaAward } from "react-icons/fa";
-import { FiAward } from "react-icons/fi";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { FaRankingStar } from "react-icons/fa6";
-import { FaBookOpen } from "react-icons/fa";
+import { Accordion } from "../../componentes/Accordion/accordion";
 
 export function Profile(){
 
     return(
 
-        <div className="h-screen">
+        <div className="h-full">
 
             <div className="flex gap-5 flex-col items-center h-[280px] bg-[#EEE5EA] justify-center">
 
@@ -42,7 +39,10 @@ export function Profile(){
             </div>
 
             <div className="flex flex-col gap-4 justify-center p-4">
-                <div className="mx-2.5 flex w-full items-center p-2 rounded-lg shadow-md justify-between">
+
+                 <Accordion />
+
+                {/* <div className="mx-2.5 flex w-full items-center p-2 rounded-lg shadow-md justify-between">
                    <div className="flex gap-2 items-center text-[#EE5DB6]">
                         <FiAward size='20px'  />
                         <p>Prêmios</p>
@@ -64,7 +64,7 @@ export function Profile(){
                         <p>Meus Posts</p>
                     </div>
                     <MdOutlineKeyboardArrowDown />
-                </div>
+                </div> */}
 
     
             </div>

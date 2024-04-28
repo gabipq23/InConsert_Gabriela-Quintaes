@@ -19,7 +19,7 @@
 
 .logo{
   background-color:#CD168A;
-  font-size:1.25em;
+  font-size:1.05em;
   font-weight:bold;
   color:#7BDA97;
   padding:8px 16px;
@@ -37,11 +37,11 @@
   gap:16px;
   color:#C6007D;
   font-weight:bold;
-
 }
 
 .menu a{
   cursor:pointer;
+  font-size:.875em;
 }
 
 .menu a:hover{
