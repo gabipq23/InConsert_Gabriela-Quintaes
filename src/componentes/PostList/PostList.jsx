@@ -5,7 +5,6 @@ import { useState } from "react";
 
 // https://www.figma.com/file/x44d6b3o5vxIOJFQZiPZBO/Untitled?type=design&node-id=0-1&mode=design&t=PwDwl0A7y8KMTQW1-0
 
-
 export function PostList({ handlePlus }) {
 
     const [posts, setPosts] = useState(null);
@@ -31,21 +30,26 @@ export function PostList({ handlePlus }) {
         setPosts(convertedPosts);
       }).catch((erro) => setMessage(erro.meesage)).finally(() => setLoading(false));
     },[]);
-    
+
+
   return (
     <div className={styles["container"]}>
             
-             <div  className={styles["containerPosts"]}> 
-      {isLoading && <p>Carregando...</p>}
-      {message && <p>Erro: {message}</p>}
-      {posts && posts.map((post) => <Card key={post.id} post={post} />)}
-      
+            <div  className={styles["containerPosts"]}> 
+        {isLoading && 
+        
+        <div className={styles["loading"]} />
+
+        }
+        {message && <p>Erro: {message}</p>}
+        {posts && posts.map((post) => <Card key={post.id} post={post} />)}
+        
       </div>
       <div className={styles["buttonContainer"]}>
                <button onClick={handlePlus} className={styles["buttonPlus"]}>+</button>
     </div>
 
-    
+
     </div>
   )
 }

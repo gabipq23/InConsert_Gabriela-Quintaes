@@ -9,10 +9,10 @@ export function Card(props) {
   return (
     
     <div className={styles["containerPosts"]}>
-        <p>{post.titulo}</p>
-        <p>{post.artista}</p>
-        <p>{post.local}</p>
-        <p>{post.descricao}</p>
+        <p>Título: {post.titulo}</p>
+        <p>Artista: {post.artista}</p>
+        <p>Local: {post.local}</p>
+        <p>Descrição: {post.descricao}</p>
    
         <div className={styles["icons"]}> 
              <span className={styles["iconItem"]}><FaRegHeart size='20px'/></span>

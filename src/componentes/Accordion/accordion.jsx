@@ -85,10 +85,8 @@ export function Accordion(){
                 <p>Show Jonas Brothers</p>
                 <p>Show The Weeknd</p>
                 
-                
               </div>
           </div>
-
 
         </div>
       

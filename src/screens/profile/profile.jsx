@@ -1,7 +1,30 @@
 import { FaAward } from "react-icons/fa";
 import { Accordion } from "../../componentes/Accordion/accordion";
+import { useEffect } from "react";
+import { useState } from "react";
 
 export function Profile(){
+
+    const [numPosts, setNumPosts] = useState(0);
+
+    const baseUrl = 'https://inconsert-pb-13d11-default-rtdb.asia-southeast1.firebasedatabase.app/'
+
+    function convertData(data) {
+      const ids = Object.keys(data);
+      let posts = Object.values(data);
+      return posts.map((post,index) =>{
+        return{
+          id:ids[index], ...post,
+        };
+      });
+    }
+
+    useEffect(() => {
+      fetch(`${baseUrl}/postList.json`).then(async (resp) => {
+        const respPosts = await resp.json();
+        let convertedPosts = convertData(respPosts);
+        setNumPosts(convertedPosts.length)
+      })},[]);
 
     return(
 
@@ -20,8 +43,8 @@ export function Profile(){
 
                 <div className="flex gap-4 text-sm">
                     <div className="flex flex-col items-center bg-[#EAFFF0] p-2 rounded-lg shadow-md">
-                        <p className="text-[#CD168A]">42</p>
-                        <p className="text-[#EE5DB6]">Tópicos</p>
+                        <p className="text-[#CD168A]">{numPosts}</p>
+                        <p className="text-[#EE5DB6]">Posts</p>
                     </div>
 
                     <div className="flex flex-col items-center bg-[#EAFFF0] p-2 rounded-lg shadow-md">
@@ -42,31 +65,6 @@ export function Profile(){
 
                  <Accordion />
 
-                {/* <div className="mx-2.5 flex w-full items-center p-2 rounded-lg shadow-md justify-between">
-                   <div className="flex gap-2 items-center text-[#EE5DB6]">
-                        <FiAward size='20px'  />
-                        <p>Prêmios</p>
-                    </div>
-                    <MdOutlineKeyboardArrowDown />
-                </div>
-
-                <div className="mx-2.5 flex w-full items-center p-2 rounded-lg shadow-md justify-between">
-                   <div className="flex gap-2 items-center text-[#EE5DB6]">
-                        <FaRankingStar size='20px'  />
-                        <p>Ranking</p>
-                    </div>
-                    <MdOutlineKeyboardArrowDown />
-                </div>
-
-                <div className="mx-2.5 flex w-full items-center p-2 rounded-lg shadow-md justify-between">
-                   <div className="flex gap-2 items-center text-[#EE5DB6]">
-                        <FaBookOpen size='20px'  />
-                        <p>Meus Posts</p>
-                    </div>
-                    <MdOutlineKeyboardArrowDown />
-                </div> */}
-
-    
             </div>
 
             <div className="flex items-center justify-center m-2">
