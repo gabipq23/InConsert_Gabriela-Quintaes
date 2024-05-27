@@ -1,8 +1,10 @@
+/* CFAZER ESTILO DA TELA NOVO POST */
+
 .container{
-    background-color:#F0D6E6;
-    padding:16px;
+    padding:36px 10px;
     display:flex;
     flex-direction:column;
+    gap: 8px;
     align-items:center;
     font-family:Helvetica;
     color:#404a43;
@@ -10,24 +12,38 @@
     margin-bottom: 20px;
 }
 
+.titulo{
+    font-size: 20px;
+    font-weight: bold;
+}
 
-.container textarea{
-    border: solid 1px #C6007D;
+.form{
+    display:flex;
+    flex-direction:column;
+    gap: 16px;
+    background-color: #F0D6E6;
+    padding: 16px;
+    border-radius: 4px;
+    min-width: 300px;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-item input{
+    border: solid 1px #404a43;
+    width: 100%;
+    height: 100%;
     padding: 8px;
-    width: 300px;
-    height: 200px;
-    margin: 10px;
 }
 
-@media(width>600px){
-    .container textarea{
-        border: solid 1px #C6007D;
-        padding: 8px;
-        width: 400px;
-        height: 160px;
-        margin: 10px;
-    }
+.form .descricao{
+    height: 100px;
 }
+
 .buttonNew{
     border:none;
     border-radius:15px;
@@ -50,8 +66,7 @@
 }
 
 @media(width>600px){
-    .container input{
+    .form input{
         width: 400px;
-        height: 100px;
     }  
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import './accordion.css'
 import { FiAward } from "react-icons/fi";
 import { FaRankingStar } from "react-icons/fa6";
@@ -6,8 +6,32 @@ import { FaBookOpen } from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 
+export function Accordion(props){
 
-export function Accordion(){
+
+  const [posts, setPosts] = useState(null);
+
+
+    const baseUrl = 'https://inconsert-pb-13d11-default-rtdb.asia-southeast1.firebasedatabase.app/'
+
+    function convertData(data) {
+      const ids = Object.keys(data);
+      let posts = Object.values(data);
+      return posts.map((post,index) =>{
+        return{
+          id:ids[index], ...post,
+        };
+      });
+    }
+
+    useEffect(() => {
+      fetch(`${baseUrl}/postList.json`)
+      .then(async (resp) => {
+        const respPosts = await resp.json();
+        let convertedPosts = convertData(respPosts);
+        setPosts(convertedPosts);
+      })
+    },[]);
 
     const [selected, setSelected]  = useState(null);
   
@@ -15,7 +39,6 @@ export function Accordion(){
       if(selected == i){
         return setSelected(null);
       }
-  
       setSelected(i)
     }
 
@@ -36,14 +59,21 @@ export function Accordion(){
                 </div>
 
                 <div className={selected == 0 ? 'conteudo show' : 'conteudo'}>
+                <div className='flex flex-col p-2 gap-1 border-b-2'>
                   <p>Desconto com a Eventim</p>
+                  </div>
+                  <div className='flex flex-col p-2 gap-1 border-b-2'>
                   <p>Par de ingressos na Tickets4Fun</p>
+                  </div>
+                  <div className='flex flex-col p-2 gap-1 border-b-2'>
                   <p>Copo personalizado</p>
+                  </div>
+                  <div className='flex flex-col p-2 gap-1 border-b-2'>
                   <p>Poster da sua banda preferida</p>
+                  </div>
                 </div>
           </div>
 
-          
         </div>
 
         <div className="accordion flex flex-col gap-4 justify-center p-4">
@@ -53,18 +83,21 @@ export function Accordion(){
                   
                   <div className='flex items-center gap-2'>
                   <FaRankingStar size='20px'  />
+                  
                   <p>Ranking</p>
+                  
                   </div>
                   <span>{selected == 1 ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />}</span>
               
               </div>
 
               <div className={selected == 1 ? 'conteudo show' : 'conteudo'}>
-                <p>2º lugar</p>
+              <div className='flex flex-col p-2 gap-1' >
+                  <p>2º Lugar</p>
+                  </div>
                 
               </div>
           </div>
-
 
         </div>
 
@@ -80,16 +113,16 @@ export function Accordion(){
                   <span>{selected == 2 ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />}</span>
               
               </div>
-
-              <div className={selected == 2 ? 'conteudo show' : 'conteudo'}>
-                <p>Show Jonas Brothers</p>
-                <p>Show The Weeknd</p>
-                
+             {posts && posts.map((post) => 
+              <div key={post.id} className={selected == 2 ? 'conteudo show' : 'conteudo'}>
+                <div className='flex flex-col p-2 gap-1 border-b-2'>
+                  <p>Artista: {post.artista} </p>
+                  <p>{post.titulo}</p>
+                </div>
               </div>
+             )}
           </div>
-
         </div>
-      
     </div>
     )
 }
