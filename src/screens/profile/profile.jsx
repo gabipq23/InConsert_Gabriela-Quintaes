@@ -2,6 +2,7 @@ import { FaAward } from "react-icons/fa";
 import { Accordion } from "../../componentes/Accordion/accordion";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from 'react-router-dom'
 
 export function Profile(){
 
@@ -67,9 +68,11 @@ export function Profile(){
 
             </div>
 
+            <Link to={'/'}>
             <div className="flex items-center justify-center m-2">
                 <button className="bg-[#CD168A] hover:bg-[#EE5DB6] px-5 py-1 rounded-2xl text-[#EAEAEA]">Logout</button>
             </div>
+            </Link>
         </div>
     )
 }

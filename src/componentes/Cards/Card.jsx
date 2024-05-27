@@ -1,16 +1,34 @@
 import styles from './Card.module.css'
 
 import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { FaRegCommentDots } from "react-icons/fa";
 import { CgDetailsMore } from "react-icons/cg";
 import { MdDeleteForever } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
+import { Link } from 'react-router-dom';
 
 export function Card(props) {
   const post = props.post;
   const onDeletePost = props.onDeletePost
 
-  const navigate = useNavigate()
+  const [counter,setCounter] = useState(0)
+
+  const [liked,setLiked] = useState(false)
+
+
+  const countLikes = () =>{
+    if(liked){
+      setCounter(counter-1)
+    }else{
+      setCounter(counter+1)
+    }
+    setLiked(!liked)
+    
+  }
+
+  const baseUrl = 'https://inconsert-pb-13d11-default-rtdb.asia-southeast1.firebasedatabase.app/'
 
   return (
     
@@ -20,15 +38,21 @@ export function Card(props) {
         <p>Local: {post.local}</p>
         <p>Data: {post.data}</p>
         <p>Descrição: {post.descricao}</p>
-
    
         <div className={styles["icons"]}> 
-            <span className={styles["iconItem"]}><FaRegHeart size='20px'/></span>
-            <span className={styles["iconItem"]}><FaRegCommentDots size='20px' /></span>
-            
-              <button onClick={() => navigate(`/post/${post.id}`)}  className={styles["iconItem"]}><CgDetailsMore size='20px' /></button>
-              
-              <button onClick={() => onDeletePost(post.id)}  className={styles["iconItem"]}><MdDeleteForever size='20px' /></button>
+            <span className={styles["iconItem"]}>
+              <p>{counter}</p>
+              <button onClick={countLikes}>
+                {liked ? <FaHeart size='20px' /> : <FaRegHeart size='20px'/>}</button>
+                
+              </span>
+            <span className={styles["iconItem"]}>
+              <FaRegCommentDots size='20px' />
+              </span>
+            <Link to={post.id}>
+            <button   className={styles["iconItem"]}><CgDetailsMore size='20px' /></button>
+            </Link>
+            <button onClick={() => onDeletePost(post.id)}  className={styles["iconItem"]}><MdDeleteForever size='20px' /></button>
         
          </div>
 

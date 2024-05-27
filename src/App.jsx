@@ -4,12 +4,12 @@ import { Profile } from "./screens/profile/profile"
 import { Home } from "./screens/Home/Home"
 import { NewPost } from "./componentes/NewPost/NewPost"
 import { PostList } from "./componentes/PostList/PostList"
-// import { Login } from "./screens/Login/Login"
+import { Login } from "./screens/Login/Login"
+import { FullPost } from "./componentes/FullPost/FullPost"
 
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom' 
 
 import "./App.css"
-import FullPost from "./componentes/FullPost/FullPost"
 function App() {
 
   return (
@@ -30,8 +30,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          {/* <Route path="/login" element={<Login />}></Route> */}
-
+          <Route path="/login" element={<Login />}></Route>
           <Route path="/posts" element={<PostList />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/newPost" element={<NewPost />}></Route>
@@ -39,8 +38,9 @@ function App() {
         </Routes>
       </main>
       <Footer />
+     
     </BrowserRouter>
-
+ 
   )
 }
 

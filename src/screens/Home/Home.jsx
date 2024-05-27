@@ -1,11 +1,9 @@
 import { FiAward } from "react-icons/fi";
 import { FaRankingStar } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+
+import { Link } from 'react-router-dom'
 
 export function Home(){
-
-    const navigate = useNavigate()
-
 
     return(
         <div className="h-full"> 
@@ -47,7 +45,13 @@ export function Home(){
                         <div className="bg-[#EAFDF0] p-4 rounded-2xl shadow">
                             <p>Quer fazer parte desse show?</p>
                             <div className="flex items-center justify-center m-2">
-                                <button onClick={() => navigate(`/login`)} className="bg-[#CD168A] hover:bg-[#EE5DB6] px-5 py-1 rounded-2xl text-[#EAEAEA]">Login</button>
+                               
+
+                            <Link to='/login'>                                
+                                <button className="bg-[#CD168A] hover:bg-[#EE5DB6] px-5 py-1 rounded-2xl text-[#EAEAEA]">Login</button>
+                            </Link>
+                                
+                                
                             </div>
 
                         </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function FullPost ({id}) {
+export  function FullPost ({id}) {
 
     const baseUrl = 'https://inconsert-pb-13d11-default-rtdb.asia-southeast1.firebasedatabase.app/'
 
