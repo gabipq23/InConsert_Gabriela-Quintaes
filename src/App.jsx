@@ -21,7 +21,7 @@ function App() {
         </div>
         <nav className="menu">
           <Link to='/'>Home</Link>
-          <Link to='/posts'>Posts</Link>
+          <Link data-cy="menu_post" to='/posts'>Posts</Link>
           <Link to='/profile'>Profile</Link>
           <Link to='/newPost'>Novo post</Link>
         </nav>

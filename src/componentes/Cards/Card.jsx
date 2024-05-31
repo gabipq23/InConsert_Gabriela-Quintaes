@@ -32,7 +32,7 @@ export function Card(props) {
 
   return (
     
-    <div className={styles["containerPosts"]}>
+    <div data-cy="post_card" className={styles["containerPosts"]}>
         <p>Título: {post.titulo}</p>
         <p>Artista: {post.artista}</p>
         <p>Local: {post.local}</p>
