@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 export function Profile(){
 
     const [numPosts, setNumPosts] = useState(0);
+    const [ pontos, setPontos ] = useState(0)
 
     const baseUrl = 'https://inconsert-pb-13d11-default-rtdb.asia-southeast1.firebasedatabase.app/'
 
@@ -25,6 +26,12 @@ export function Profile(){
         const respPosts = await resp.json();
         let convertedPosts = convertData(respPosts);
         setNumPosts(convertedPosts.length)
+
+        let somaDePontos = 0
+        for(let i =0; i < convertedPosts.length; i++){
+            somaDePontos += convertedPosts[i].pontos || 0
+        }
+        setPontos(somaDePontos)
       })},[]);
 
     return(
@@ -49,7 +56,7 @@ export function Profile(){
                     </div>
 
                     <div className="flex flex-col items-center bg-[#EAFFF0] p-2 rounded-lg shadow-md">
-                        <p className="text-[#CD168A]">200</p>
+                        <p className="text-[#CD168A]">{pontos}</p>
                         <p className="text-[#EE5DB6]">Pontos</p>
                     </div>
 

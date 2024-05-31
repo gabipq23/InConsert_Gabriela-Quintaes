@@ -11,6 +11,35 @@ export function NewPost() {
   const [ titulo, setTitulo ] = useState('')
   const [ data, setData ] = useState('')
 
+  const [ pontos, setPontos ] = useState(25)
+
+  const [ likes, setLikes ] = useState(0)
+
+
+  const adicionarPontos = () => {
+    setPontos(25)
+  }
+
+  const adicionarPost = () => {
+    setIsLoading(true)
+    const post = {artista, descricao, titulo, local, data, pontos, likes}
+    fetch(`${baseUrl}postList.json`, {
+      method:'post',
+      header:{
+        'Content-Type':'application/json',
+      },
+      body: JSON.stringify(post),
+    }).then(_ => setMessage('Novo post criado!!')
+    ).catch( error => setMessage(error.message))
+    .finally(setIsLoading(false))
+  }
+
+  const handleClick = () =>{
+    adicionarPost()
+
+    adicionarPontos()
+  }
+
   const baseUrl = 'https://inconsert-pb-13d11-default-rtdb.asia-southeast1.firebasedatabase.app/'
 
     return (
@@ -50,21 +79,10 @@ export function NewPost() {
             </div>
 
             <div className={styles["buttonContainer"]}>
-              <button onClick={() => {
-                setIsLoading(true)
-                const post = {artista, descricao, titulo, local, data}
-                fetch(`${baseUrl}postList.json`, {
-                  method:'post',
-                  header:{
-                    'Content-Type':'application/json',
-                  },
-                  body: JSON.stringify(post),
-                }).then(_ => setMessage('Novo post criado!!')
-                ).catch( error => setMessage(error.message))
-                .finally(setIsLoading(false))
-              }} className={styles["buttonNew"]}>Publicar</button>
+              <button onClick={handleClick} className={styles["buttonNew"]}>Publicar</button>
             </div>
 
+            
           </section>
       </div>
     );
